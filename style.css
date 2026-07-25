@@ -1,0 +1,120 @@
+body {
+margin: 10px;
+height: 100vh;
+font-family: 'VT323', monospace;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: #000000 ;
+}
+
+.countdown {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    color: #7fdeff;
+}
+
+.timer {
+    display:flex;
+    gap: 20px;
+    margin-top: 20px;
+    color: #7fdeff;
+}
+
+.time.block {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size:2rem;
+}
+
+.time-block label{
+    font-size: 18px;
+
+}
+
+/*make button bigger later */
+#alien-button {
+    font-family: 'VT323', monospace;
+    background-color: #38f01f;
+
+}
+
+
+
+
+.hidden {
+    display: none;
+}
+
+/* star shape code copy and pasted from: https://css-shape.com/star/ */
+.star {
+  width: 300px;  
+  aspect-ratio: 1;
+  background: #F8CA00;
+  clip-path: polygon(50% 0,
+    calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),
+    calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+    calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+    calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))) 
+   ); 
+}
+
+.star{
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: rotate(var(--rotation)) scale(1); }
+  50% { opacity: 1; transform: rotate(var(--rotation)) scale(1.3); }
+}
+
+.comets {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.comet{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 4px 2px rgba (255, 255, 255, 0.8);
+    animation: shoot linear forwards;
+}
+
+.comet::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 200px;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba(255,255,255,0.4) 60%, 
+    rgba(255,255,255,0.9)
+  );
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+
+@keyframes shoot {
+  from {
+    transform: translate(0, 0) rotate(135deg);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-500px, 500px) rotate(135deg);
+    opacity: 0;
+  }
+}
