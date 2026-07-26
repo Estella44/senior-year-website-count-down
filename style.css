@@ -37,6 +37,9 @@ background-color: #000000 ;
 #alien-button {
     font-family: 'VT323', monospace;
     background-color: #38f01f;
+    height: 50px;
+    width: 130px;
+    font-size: 18px;
 
 }
 
