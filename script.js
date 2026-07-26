@@ -89,7 +89,12 @@ function createAliens() {
     const photo = document.createElement('img');
     photo.src = alienPic;
 
-    photo.style.transform = 'scale(0.15)';
+    photo.style.width = '100px';
+    photo.style.height = 'auto';
+    photo.style.position = 'absolute';
+
+    photo.style.left = Math.random() * (window.innerWidth - photo.offsetWidth) + 'px';
+    photo.style.top = Math.random() * (window.innerHeight - photo.offsetHeight) + 'px';
 
     document.body.appendChild(photo);
 
